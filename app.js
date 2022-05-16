@@ -41,8 +41,9 @@ document.addEventListener("DOMContentLoaded", function() {
                             nextQuestion();
                             
                         } else {
-                            console.log("incorrect");
-                            // location.reload();
+                            // console.log("incorrect");
+                            alert("Wrong answer Tajana... pls get your shit together and try again!");
+                            location.reload();
                         }
                     });
                 };
