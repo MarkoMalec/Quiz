@@ -17,6 +17,9 @@ body {
 }
 
 .content-wrapper {
+  font-size: 3rem;
+  color: aliceblue;
+  text-align: center;
   height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -37,6 +40,7 @@ body {
 #score {
   width: 300px;
   height: 500px;
+  font-size: 1.2rem;
   background-color: rgba(0, 102, 255, 0.1);
   border-radius: 15px;
   text-align: center;
@@ -45,6 +49,10 @@ body {
 #score h1, #score h2, #score h3, #score h4, #score h5, #score h6, #score p {
   color: aliceblue;
   margin-top: 2rem;
+}
+
+#score p {
+  font-size: 2rem;
 }
 
 .container {
@@ -73,11 +81,12 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 700px;
+  color: aliceblue;
+  text-shadow: 1px 2px #000;
+  width: 950px;
   height: 500px;
-  font-size: 1.3rem;
+  font-size: 1.8rem;
   background: linear-gradient(45deg, tomato, cyan);
-  border: 2px solid #000;
   border-radius: 20px;
 }
 
@@ -92,7 +101,16 @@ body {
 }
 
 #answers div {
-  width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 400px;
   background-color: tomato;
   border-radius: 50px;
   font-size: 1.2rem;
