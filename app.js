@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
-
+    
     fetch("questions.json").then(res => res.json()).then(data => { 
-            
+        
         console.log(data.questions[0].question); // just a test
         var score = "0";            
         var questionNum = -1;
@@ -10,11 +10,10 @@ document.addEventListener("DOMContentLoaded", function() {
         btnStart.addEventListener("click", function nextQuestion() {
             btnStart.remove();
             ++questionNum; // increment question number (index) on each click event
-            console.log(questionNum);
             
             if (questionNum >= data.questions.length) { // when question number reaches the length of questions (15) alert the msg
-                alert("No more questions!");
-
+                alert("Congratulations, you are still not a millionare...");
+                
             } else { // while it is less than questions length, display the content
                 var questionContainer = document.getElementById("question");
                 const answers = data.questions[questionNum].content;
@@ -35,16 +34,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 for(let j = 0; j < answerDivs.length; j++) {
                     answerDivs[j].addEventListener("click", function(e) {
                         if(e.target.id == answerCorrect) {
-                            console.log("correct");
                             ++score
-                            console.log(score);
                             nextQuestion();
-                            
                         } else {
-                            // console.log("incorrect");
-                            alert("Wrong answer Tajana... pls get your shit together and try again!");
-                            location.reload();
-                        }
+                            var allContent = document.getElementsByClassName("content-wrapper")[0];
+                            allContent.style = "flex-direction:column";
+                            allContent.innerHTML = `<p>Wrong answer, the correct answer was:<br /><strong>${answers[answerCorrect]}</strong></p>`;
+                            allContent.innerHTML += `<h1>Game Over!</h1>`
+                            allContent.innerHTML += `<p>You got ${score}/15 answers right!`
+                        };
                     });
                 };
             }; // the app (else)       
