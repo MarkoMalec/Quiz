@@ -15,7 +15,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 alert("Congratulations, you are still not a millionare...");
                 
             } else { // while it is less than questions length, display the content
-                var questionContainer = document.getElementById("question");
+                const allContent = document.getElementsByClassName("content-wrapper")[0];
+                const questionContainer = document.getElementById("question");
                 const answers = data.questions[questionNum].content;
                 const answersContainer = document.getElementById("answers");
                 const answerDivs = answersContainer.childNodes;
@@ -44,7 +45,6 @@ document.addEventListener("DOMContentLoaded", function() {
                                 ++score
                                 nextQuestion();
                             } else {
-                                var allContent = document.getElementsByClassName("content-wrapper")[0];
                                 allContent.style = "flex-direction:column";
                                 allContent.innerHTML = `<p>Wrong answer, the correct answer was:<br /><strong>${answers[answerCorrect]}</strong></p>`;
                                 allContent.innerHTML += `<h1>Game Over!</h1>`
