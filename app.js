@@ -33,16 +33,23 @@ document.addEventListener("DOMContentLoaded", function() {
                 // check if answer clicked is correct and if it is activate nextQuestion();      
                 for(let j = 0; j < answerDivs.length; j++) {
                     answerDivs[j].addEventListener("click", function(e) {
-                        if(e.target.id == answerCorrect) {
-                            ++score
-                            nextQuestion();
+                        if(e.target.id == answerCorrect) { // this block will indicate if the answer was correct or not by changing bg color of answer clicked
+                            e.target.style = "background-color:green";
                         } else {
-                            var allContent = document.getElementsByClassName("content-wrapper")[0];
-                            allContent.style = "flex-direction:column";
-                            allContent.innerHTML = `<p>Wrong answer, the correct answer was:<br /><strong>${answers[answerCorrect]}</strong></p>`;
-                            allContent.innerHTML += `<h1>Game Over!</h1>`
-                            allContent.innerHTML += `<p>You got ${score}/15 answers right!`
+                            e.target.style = "background-color:red";
                         };
+                        setTimeout(function(){
+                            if(e.target.id == answerCorrect) {
+                                ++score
+                                nextQuestion();
+                            } else {
+                                var allContent = document.getElementsByClassName("content-wrapper")[0];
+                                allContent.style = "flex-direction:column";
+                                allContent.innerHTML = `<p>Wrong answer, the correct answer was:<br /><strong>${answers[answerCorrect]}</strong></p>`;
+                                allContent.innerHTML += `<h1>Game Over!</h1>`
+                                allContent.innerHTML += `<p>You got ${score}/15 answers right!`
+                            };
+                        }, 2000)
                     });
                 };
             }; // the app (else)       
