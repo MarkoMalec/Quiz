@@ -25,8 +25,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 scoreValue.innerHTML = score;
                 
                 questionContainer.innerHTML = data.questions[questionNum].question;
-                
-                for(let i = 0; i < answers.length; i++) { // iterate through answers and put them in HTML
+
+                // iterate through answers and put them in HTML
+                for(let i = 0; i < answers.length; i++) { 
                     answersContainer.innerHTML = `<div id="0">${answer1}</div><div id="1">${answer2}</div><div id="2">${answer3}</div><div id="3">${answer4}</div>`;
                 };
 
@@ -48,6 +49,12 @@ document.addEventListener("DOMContentLoaded", function() {
                                 allContent.innerHTML = `<p>Wrong answer, the correct answer was:<br /><strong>${answers[answerCorrect]}</strong></p>`;
                                 allContent.innerHTML += `<h1>Game Over!</h1>`
                                 allContent.innerHTML += `<p>You got ${score}/15 answers right!`
+                                allContent.innerHTML += `<button id="restart" style="padding:1.5rem 2.5rem;font-size:1.25rem">Try again</button>`
+                                var btnRestart = document.getElementById("restart");
+                        
+                                btnRestart.addEventListener("click", () => {
+                                    location.reload();
+                                })
                             };
                         }, 2000)
                     });
