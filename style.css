@@ -139,4 +139,34 @@ body {
   padding: 1.5rem 2.5rem 1.5rem 2.5rem;
   margin-right: 2rem;
 }
+
+.answerCorrect {
+  background-color: green;
+  -webkit-animation: blink 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) infinite;
+          animation: blink 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) infinite;
+}
+
+@-webkit-keyframes blink {
+  0% {
+    background-color: tomato;
+  }
+  50% {
+    background-color: green;
+  }
+  100% {
+    background-color: tomato;
+  }
+}
+
+@keyframes blink {
+  0% {
+    background-color: tomato;
+  }
+  50% {
+    background-color: green;
+  }
+  100% {
+    background-color: tomato;
+  }
+}
 /*# sourceMappingURL=style.css.map */
