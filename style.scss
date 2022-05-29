@@ -1,115 +1,130 @@
 * {
-    margin: 0;
-    box-sizing: border-box;
+  margin: 0;
+  box-sizing: border-box;
 
-    ::before, ::after {
-        margin: inherit;
-        box-sizing: inherit;
-    }
-    
+  ::before,
+  ::after {
+    margin: inherit;
+    box-sizing: inherit;
+  }
 }
 
 body {
-    background-image: url("img/background.svg");
-    background-size: cover;
-    background-repeat: no-repeat;
+  background-image: url("img/background.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .content-wrapper {
-    font-size: 3rem;
-    color: aliceblue;
-    text-align: center;
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 5rem;
-    align-items: center;
+  font-size: 3rem;
+  color: aliceblue;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5rem;
+  align-items: center;
 }
 
 #score {
-    width: 300px;
-    height: 500px;
-    font-size: 1.2rem;
-    background-color: rgba($color: #0066ff, $alpha: 0.1);
-    border-radius: 15px;
-    text-align: center;
-    // border: .5px solid #000;
-    // align-self: baseline;
-    h1, h2, h3, h4, h5, h6, p {
-        color: aliceblue;
-        margin-top: 2rem;
-    }
-    p {
-        font-size: 2rem;
-    }
+  width: 300px;
+  height: 500px;
+  font-size: 1.2rem;
+  background-color: rgba($color: #0066ff, $alpha: 0.1);
+  border-radius: 15px;
+  text-align: center;
+  // border: .5px solid #000;
+  // align-self: baseline;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    color: aliceblue;
+    margin-top: 2rem;
+  }
+  p {
+    font-size: 2rem;
+  }
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #question {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: aliceblue;
-    text-shadow: 1px 2px #000;
-    width: 950px;
-    height: 500px;
-    font-size: 1.8rem;
-    background: linear-gradient(45deg, tomato, cyan);
-    border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: aliceblue;
+  text-shadow: 1px 2px #000;
+  width: 950px;
+  height: 500px;
+  font-size: 1.8rem;
+  background: linear-gradient(45deg, tomato, cyan);
+  border-radius: 20px;
 }
 
 #answers {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    margin: 3rem 0 3rem 0;
-    
-    div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 400px;
-        background-color: tomato;
-        border-radius: 50px;
-        font-size: 1.2rem;
-        margin: .5rem 1.5rem .5rem 1.5rem;
-        padding: 1rem 2rem 1rem 2rem;
-    }
-    div:hover {
-        box-shadow: 1px 5px 10px #000;
-    }
-    div:active {
-        box-shadow: inset 1px 5px 10px #000;
-    }
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  margin: 3rem 0 3rem 0;
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    background-color: tomato;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    margin: 0.5rem 1.5rem 0.5rem 1.5rem;
+    padding: 1rem 2rem 1rem 2rem;
+  }
+  div:hover {
+    box-shadow: 1px 5px 10px #000;
+  }
+  div:active {
+    box-shadow: inset 1px 5px 10px #000;
+  }
 }
 
 #next {
-    width: 200px;
-    padding: 1.5rem 2.5rem 1.5rem 2.5rem;
+  width: 200px;
+  padding: 1.5rem 2.5rem 1.5rem 2.5rem;
 }
 
 #start {
-    width: 200px;
-    font-size: 1.2rem;
-    padding: 1.5rem 2.5rem 1.5rem 2.5rem;
-    margin-right: 2rem;
+  width: 200px;
+  font-size: 1.2rem;
+  padding: 1.5rem 2.5rem 1.5rem 2.5rem;
+  margin-right: 2rem;
 }
 
 .answerCorrect {
-    background-color: green;
-    animation: blink 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) infinite;
+  background-color: green;
+  animation: blink 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) infinite;
+}
+
+.pointer-events {
+    pointer-events: none;
 }
 
 @keyframes blink {
-    0% {background-color: tomato}
-    50% {background-color: green}
-    100% {background-color: tomato}
-
+  0% {
+    background-color: tomato;
+  }
+  50% {
+    background-color: green;
+  }
+  100% {
+    background-color: tomato;
+  }
 }

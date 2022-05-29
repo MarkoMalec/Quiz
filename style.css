@@ -4,7 +4,8 @@
           box-sizing: border-box;
 }
 
-* ::before, * ::after {
+* ::before,
+* ::after {
   margin: inherit;
   -webkit-box-sizing: inherit;
           box-sizing: inherit;
@@ -46,7 +47,13 @@ body {
   text-align: center;
 }
 
-#score h1, #score h2, #score h3, #score h4, #score h5, #score h6, #score p {
+#score h1,
+#score h2,
+#score h3,
+#score h4,
+#score h5,
+#score h6,
+#score p {
   color: aliceblue;
   margin-top: 2rem;
 }
@@ -114,7 +121,7 @@ body {
   background-color: tomato;
   border-radius: 50px;
   font-size: 1.2rem;
-  margin: .5rem 1.5rem .5rem 1.5rem;
+  margin: 0.5rem 1.5rem 0.5rem 1.5rem;
   padding: 1rem 2rem 1rem 2rem;
 }
 
@@ -144,6 +151,10 @@ body {
   background-color: green;
   -webkit-animation: blink 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) infinite;
           animation: blink 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) infinite;
+}
+
+.pointer-events {
+  pointer-events: none;
 }
 
 @-webkit-keyframes blink {
