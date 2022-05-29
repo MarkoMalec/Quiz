@@ -40,7 +40,6 @@ body {
 
 #score {
   width: 300px;
-  height: 500px;
   font-size: 1.2rem;
   background-color: rgba(0, 102, 255, 0.1);
   border-radius: 15px;
@@ -214,5 +213,36 @@ body {
   100% {
     opacity: 100%;
   }
+}
+
+.currentMoney {
+  position: relative;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.currentMoney::before {
+  content: '';
+  position: absolute;
+  top: -70%;
+  left: 0;
+  width: 0px;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 15px solid #3389d9;
+}
+
+.currentMoney::after {
+  content: '';
+  position: absolute;
+  top: -70%;
+  right: 0;
+  width: 0px;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-right: 15px solid #3389d9;
+  border-bottom: 15px solid transparent;
+  border-left: 15px solid transparent;
 }
 /*# sourceMappingURL=style.css.map */

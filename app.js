@@ -2,11 +2,11 @@ document.addEventListener("DOMContentLoaded", function () {
   fetch("questions.json")
     .then((res) => res.json())
     .then((data) => {
-      var score = 0;
       var tracker = 0;
+      var trackerMoney = -1;
       var questionNum = -1;
-      const btnStart = document.getElementById("start");
-
+      const btnStart = document.getElementById("start"); 
+      
       //////// SOUNDS:
       var soundCorrect = new Audio("sounds/correct_answer.mp3");
       var soundWrong = new Audio("sounds/sounds_wrong_answer.mp3");
@@ -16,7 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
         btnStart.style = "display: none";
         soundStart.play();
         ++questionNum; // increment question number (index) on each click event
-
+        ++trackerMoney;
+        
         if (questionNum >= data.questions.length) {
           // when question number reaches the length of questions (15) alert the msg
           alert("Congratulations, you are still not a millionare...");
@@ -35,14 +36,19 @@ document.addEventListener("DOMContentLoaded", function () {
             answers[2],
             answers[3],
           ];
-          const scoreValue = document.getElementById("scoreValue");
-          scoreValue.innerHTML = score;
+          const money = document.getElementsByTagName("p");
+          const moneyArr = [...money];
+          const reversedMoneyArr = moneyArr.reverse();
 
           questionContainer.innerHTML = data.questions[questionNum].question;
 
           // iterate through answers and put them in HTML
           for (let i = 0; i < answers.length; i++) {
             answersContainer.innerHTML = `<div id="0">${answer1}</div><div id="1">${answer2}</div><div id="2">${answer3}</div><div id="3">${answer4}</div>`;
+          }
+          // Indication of current money position
+          for(let n = 0; n < reversedMoneyArr.length; n++) {
+            reversedMoneyArr[questionNum].classList.add('currentMoney');
           }
 
           // check if answer clicked is correct and if it is activate nextQuestion();
@@ -61,31 +67,14 @@ document.addEventListener("DOMContentLoaded", function () {
               setTimeout(function () {
                 if (e.target.id == answerCorrect) {
                   ++tracker;
-                  score += 100;
                   answersContainer.style = "";
-                  //messy part where I copied the money part from original game
-                  questionNum == 0 ? (score = 100) : score;
-                  questionNum == 1 ? (score = 200) : score;
-                  questionNum == 2 ? (score = 300) : score;
-                  questionNum == 3 ? (score = 500) : score;
-                  questionNum == 4 ? (score = 1000) : score;
-                  questionNum == 5 ? (score = 2000) : score;
-                  questionNum == 6 ? (score = 4000) : score;
-                  questionNum == 7 ? (score = 8000) : score;
-                  questionNum == 8 ? (score = 16000) : score;
-                  questionNum == 9 ? (score = 32000) : score;
-                  questionNum == 10 ? (score = 64000) : score;
-                  questionNum == 11 ? (score = 125000) : score;
-                  questionNum == 12 ? (score = 250000) : score;
-                  questionNum == 13 ? (score = 500000) : score;
-                  questionNum == 14 ? (score = "1 Million") : score;
+                  answerDivs[0].style = "pointer-events:none";
+                  answerDivs[1].style = "pointer-events:none";
+                  answerDivs[2].style = "pointer-events:none";
+                  answerDivs[3].style = "pointer-events:none";
                   btnStart.style = "display: block";
                   btnStart.innerText = "Next Question";
-                  // for(let n = 0; n < answerDivs.length; n++) {
-                  //   answerDivs[n].style = "pointer-events:none";
-                  // }
-                  // // repeat style for correct answer because it gets removed after timeout
-                  // answerDivs[j].style = "background-color:green";
+                  reversedMoneyArr[trackerMoney].classList.remove('currentMoney')
                 } else {
                   allContent.style.flexDirection = "column";
                   allContent.innerHTML = `<p>Wrong answer, the correct answer was:<br /><br /><strong>${answers[answerCorrect]}</strong></p>`;
