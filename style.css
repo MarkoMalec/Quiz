@@ -61,6 +61,10 @@ body {
   font-size: 2rem;
 }
 
+#score span {
+  color: green;
+}
+
 .container {
   display: -webkit-box;
   display: -ms-flexbox;
