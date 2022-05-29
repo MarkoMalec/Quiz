@@ -6,8 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
       var tracker = 0;
       var questionNum = -1;
       const btnStart = document.getElementById("start");
-      const btnGiveUp = document.getElementById("giveUp");
-      btnGiveUp.style = "display:none";
 
       //////// SOUNDS:
       var soundCorrect = new Audio("sounds/correct_answer.mp3");
@@ -56,9 +54,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 e.target.style = "background-color:green";
                 answersContainer.style = "pointer-events:none";
               } else {
+                answerDivs[answerCorrect].classList.add("answerCorrect");
                 soundWrong.play();
                 e.target.style = "background-color:red;pointer-events:none";
-                answerDivs[answerCorrect].classList.add("answerCorrect");
               }
               setTimeout(function () {
                 if (e.target.id == answerCorrect) {
@@ -83,11 +81,11 @@ document.addEventListener("DOMContentLoaded", function () {
                   questionNum == 14 ? (score = "1 Million") : score;
                   btnStart.style = "display: block";
                   btnStart.innerText = "Next Question";
-                  for(let n = 0; n < answerDivs.length; n++) {
-                    answerDivs[n].style = "pointer-events:none";
-                  }
-                  // repeat style for correct answer because it gets removed after timeout
-                  answerDivs[j].style = "background-color:green";
+                  // for(let n = 0; n < answerDivs.length; n++) {
+                  //   answerDivs[n].style = "pointer-events:none";
+                  // }
+                  // // repeat style for correct answer because it gets removed after timeout
+                  // answerDivs[j].style = "background-color:green";
                 } else {
                   allContent.style.flexDirection = "column";
                   allContent.innerHTML = `<p>Wrong answer, the correct answer was:<br /><br /><strong>${answers[answerCorrect]}</strong></p>`;
