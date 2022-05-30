@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
           ];
           const money = document.getElementsByTagName("p");
           const moneyArr = [...money];
+          // reverse method because of the UI
           const reversedMoneyArr = moneyArr.reverse();
 
           questionContainer.innerHTML = data.questions[questionNum].question;
@@ -68,7 +69,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (e.target.id == answerCorrect) {
                   ++tracker;
                   answersContainer.style = "";
-                  answerDivs.forEach(el => el.style = "pointer-events:none")
+                  answerDivs.forEach((el) => { 
+                    el.style = "pointer-events:none" 
+                    el.innerHTML = "";
+                  });
+                  questionContainer.innerHTML = '';
                   btnStart.style = "display: block";
                   btnStart.innerText = "Next Question";
                   reversedMoneyArr[trackerMoney].classList.remove('currentMoney')

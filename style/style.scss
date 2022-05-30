@@ -10,7 +10,7 @@
 }
 
 body {
-  background-image: url("img/background.svg");
+  background-image: url("../img/background.svg");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -29,13 +29,12 @@ body {
 
 #score {
   width: 300px;
-  // height: 500px;
   font-size: 1.2rem;
   background-color: rgba($color: #0066ff, $alpha: 0.1);
   border-radius: 15px;
   text-align: center;
-  // border: .5px solid #000;
-  // align-self: baseline;
+  padding: 0.5rem 0 1rem 0;
+
   h1,
   h2,
   h3,
@@ -44,10 +43,10 @@ body {
   h6,
   p {
     color: aliceblue;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
   }
   p {
-    font-size: 2rem;
+    font-size: 1.65rem;
   }
   span {
     color: green;
@@ -68,17 +67,12 @@ body {
   align-items: center;
   color: aliceblue;
   text-shadow: 1px 2px #000;
-  // box-shadow: 0px 0px 10px rgba($color: #000, $alpha: 0.5);
   width: 1000px;
   height: 600px;
   font-size: 1.8rem;
-//   background: linear-gradient(45deg, tomato, cyan);
-  // background-color: rgba($color: #0066ff, $alpha: 0.1);
-  // border-radius: 20px;
   border-radius: 31px;
-background: rgba($color: #0E2A47, $alpha: 0.5);
-box-shadow: inset 7px 7px 16px #091b2e,
-            inset -7px -7px 16px #133960;
+  background: rgba($color: #0e2a47, $alpha: 0.5);
+  box-shadow: inset 7px 7px 16px #091b2e, inset -7px -7px 16px #133960;
   animation: fadeIn 5s;
 }
 
@@ -99,12 +93,11 @@ box-shadow: inset 7px 7px 16px #091b2e,
     font-size: 1.5rem;
     margin: 0.5rem 1.5rem 0.5rem 1.5rem;
     padding: 1rem 2rem 1rem 2rem;
-    
   }
   div:hover {
     box-shadow: 0px 0px 10px rgba($color: #000, $alpha: 0.3);
     color: green;
-    transition: .5s ease-out;
+    transition: 0.5s ease-out;
   }
   div:active {
     box-shadow: inset 1px 5px 10px #000;
@@ -131,11 +124,11 @@ box-shadow: inset 7px 7px 16px #091b2e,
 
 .answerCorrect {
   background-color: green;
-  animation: blink .5s cubic-bezier(0.075, 0.82, 0.165, 1) infinite;
+  animation: blink 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) infinite;
 }
 
 .pointer-events {
-    pointer-events: none;
+  pointer-events: none;
 }
 
 @keyframes blink {
@@ -151,30 +144,59 @@ box-shadow: inset 7px 7px 16px #091b2e,
 }
 
 @keyframes fadeIn {
-    0% {opacity: 0;}
-    100% {opacity: 100%;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes arrowL {
+  0% {
+    transform: translateX(-20px);
+  }
+  50% {
+    transform: translateX(0);
+    border-left: 20px solid green;
+  }
+  100% {
+    transform: translateX(-20px);
+  }
+}
+@keyframes arrowR {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(-20px);
+    border-right: 20px solid green;
+  }
+  100% {
+    transform: translateX(0px);
+  }
 }
 
 .currentMoney {
   position: relative;
   background: rgba($color: #000, $alpha: 0.5);
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: -70%;
-    left: 0;
+    left: 20px;
     width: 0px;
     height: 0;
     border-top: 15px solid transparent;
     border-right: 15px solid transparent;
     border-bottom: 15px solid transparent;
     border-left: 15px solid rgb(51, 137, 217);
+    animation: arrowL 3s infinite forwards;
   }
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: -70%;
-    // left: 0;
     right: 0;
     width: 0px;
     height: 0;
@@ -182,5 +204,17 @@ box-shadow: inset 7px 7px 16px #091b2e,
     border-right: 15px solid rgb(51, 137, 217);
     border-bottom: 15px solid transparent;
     border-left: 15px solid transparent;
+    animation: arrowR 3s infinite forwards;
+  }
+}
+
+@media (max-width: 1200px) {
+  #answers {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+  }
+
+  #question {
+    width: fit-content;
   }
 }
