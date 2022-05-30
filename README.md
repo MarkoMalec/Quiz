@@ -4,6 +4,8 @@ This is my first attempt at creating a quiz in vanilla Javascript.
 While I know that Google should be one of the skills used in coding, I tried not to use it on this one because I really wanted
 to think with my own head.
 
+## In order for this app to work you will need a server (XAMPP or VSCode Live Server will do).
+
 It has its issues that need polishing but I'll keep coming back to it and re-write the code as needed to polish it out.
 I am still in a learning process anyway.
 
