@@ -68,10 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (e.target.id == answerCorrect) {
                   ++tracker;
                   answersContainer.style = "";
-                  answerDivs[0].style = "pointer-events:none";
-                  answerDivs[1].style = "pointer-events:none";
-                  answerDivs[2].style = "pointer-events:none";
-                  answerDivs[3].style = "pointer-events:none";
+                  answerDivs.forEach(el => el.style = "pointer-events:none")
                   btnStart.style = "display: block";
                   btnStart.innerText = "Next Question";
                   reversedMoneyArr[trackerMoney].classList.remove('currentMoney')
