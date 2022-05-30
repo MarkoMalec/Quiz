@@ -47,39 +47,39 @@
 		                "Fairy Dust",
 		                "Northern Lights",
 		                "Book of ages",
-		                "a Game of Thrones main character"
+		                "Game of Thrones main character"
 		            ],
 		            "correct" : 1
 		        },
 				{
 				    "correct": 3,
 				    "content": [
-				        "developed the telescope",
-				        "discovered four satellites of Jupiter",
-				        "discovered that the movement of pendulum produces a regular time measurement",
+				        "Developed the telescope",
+				        "Discovered four satellites of Jupiter",
+				        "Discovered that the movement of pendulum produces a regular time measurement",
 				        "All of the above"
 				    ],
-				    "question": "Galileo was an Italian astronomer who"
+				    "question": "Galileo was an Italian astronomer who:"
 				},
 				{
 				    "correct": 3,
 				    "content": [
-				        "the infrared light kills bacteria in the body",
-				        "resistance power increases",
-				        "the pigment cells in the skin get stimulated and produce a healthy tan",
-				        "the ultraviolet rays convert skin oil into Vitamin D"
+				        "The infrared light kills bacteria in the body",
+				        "Resistance power increases",
+				        "The pigment cells in the skin get stimulated and produce a healthy tan",
+				        "The ultraviolet rays convert skin oil into Vitamin D"
 				    ],
-				    "question": "Exposure to sunlight helps a person improve his health because"
+				    "question": "Exposure to sunlight helps a person improve his health because:"
 				},
 				{
 				    "correct": 0,
 				    "content": [
-				        "a club or a local sport association for remarkable achievements",
-				        "amateur athlete, not necessarily an Olympian",
+				        "A club or a local sport association for remarkable achievements",
+				        "Amateur athlete, not necessarily an Olympian",
 				        "National Olympic Committee for outstanding work",
 				        "None of the above"
 				    ],
-				    "question": "Sir Thomas Fearnley Cup is awarded to"
+				    "question": "Sir Thomas Fearnley Cup is awarded to:"
 				},
 				{
 				    "correct": 1,

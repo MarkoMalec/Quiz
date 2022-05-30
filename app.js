@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
       var tracker = 0;
       var trackerMoney = -1;
       var questionNum = -1;
-      const btnStart = document.getElementById("start"); 
-      
+      const btnStart = document.getElementById("start");
+
       //////// SOUNDS:
       var soundCorrect = new Audio("sounds/correct_answer.mp3");
       var soundWrong = new Audio("sounds/sounds_wrong_answer.mp3");
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
         soundStart.play();
         ++questionNum; // increment question number (index) on each click event
         ++trackerMoney;
-        
+
         if (questionNum >= data.questions.length) {
           // when question number reaches the length of questions (15) alert the msg
           alert("Congratulations, you are still not a millionare...");
@@ -48,8 +48,8 @@ document.addEventListener("DOMContentLoaded", function () {
             answersContainer.innerHTML = `<div id="0">${answer1}</div><div id="1">${answer2}</div><div id="2">${answer3}</div><div id="3">${answer4}</div>`;
           }
           // Indication of current money position
-          for(let n = 0; n < reversedMoneyArr.length; n++) {
-            reversedMoneyArr[questionNum].classList.add('currentMoney');
+          for (let n = 0; n < reversedMoneyArr.length; n++) {
+            reversedMoneyArr[questionNum].classList.add("currentMoney");
           }
 
           // check if answer clicked is correct and if it is activate nextQuestion();
@@ -69,14 +69,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (e.target.id == answerCorrect) {
                   ++tracker;
                   answersContainer.style = "";
-                  answerDivs.forEach((el) => { 
-                    el.style = "pointer-events:none" 
+                  answerDivs.forEach((el) => {
+                    el.style = "pointer-events:none";
                     el.innerHTML = "";
                   });
-                  questionContainer.innerHTML = '';
+                  questionContainer.innerHTML = "";
                   btnStart.style = "display: block";
                   btnStart.innerText = "Next Question";
-                  reversedMoneyArr[trackerMoney].classList.remove('currentMoney')
+                  reversedMoneyArr[trackerMoney].classList.remove(
+                    "currentMoney"
+                  );
                 } else {
                   allContent.style.flexDirection = "column";
                   allContent.innerHTML = `<p>Wrong answer, the correct answer was:<br /><br /><strong>${answers[answerCorrect]}</strong></p>`;
@@ -89,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     location.reload();
                   });
                 }
-              }, 5000);
+              }, 4000);
             }); // EventListener for answerDivs[j]
           } // for loop through answerDivs
         } // the app (else)
