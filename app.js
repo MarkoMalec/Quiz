@@ -37,10 +37,8 @@ document.addEventListener("DOMContentLoaded", function () {
             answers[3],
           ];
           const money = document.getElementsByTagName("p");
-          const moneyArr = [...money];
-          // reverse method because of the UI
-          const reversedMoneyArr = moneyArr.reverse();
-
+          const moneyArr = [...money].reverse();
+          
           questionContainer.innerHTML = data.questions[questionNum].question;
 
           // iterate through answers and put them in HTML
@@ -48,8 +46,8 @@ document.addEventListener("DOMContentLoaded", function () {
             answersContainer.innerHTML = `<div id="0">${answer1}</div><div id="1">${answer2}</div><div id="2">${answer3}</div><div id="3">${answer4}</div>`;
           }
           // Indication of current money position
-          for (let n = 0; n < reversedMoneyArr.length; n++) {
-            reversedMoneyArr[questionNum].classList.add("currentMoney");
+          for (let n = 0; n < moneyArr.length; n++) {
+            moneyArr[questionNum].classList.add("currentMoney");
           }
 
           // check if answer clicked is correct and if it is activate nextQuestion();
@@ -71,19 +69,17 @@ document.addEventListener("DOMContentLoaded", function () {
                   answersContainer.style = "";
                   answerDivs.forEach((el) => {
                     el.style = "pointer-events:none";
-                    el.innerHTML = "";
                   });
-                  questionContainer.innerHTML = "";
                   btnStart.style = "display: block";
                   btnStart.innerText = "Next Question";
-                  reversedMoneyArr[trackerMoney].classList.remove(
+                  moneyArr[trackerMoney].classList.remove(
                     "currentMoney"
                   );
                 } else {
                   allContent.style.flexDirection = "column";
                   allContent.innerHTML = `<p>Wrong answer, the correct answer was:<br /><br /><strong>${answers[answerCorrect]}</strong></p>`;
                   allContent.innerHTML += `<h1>Game Over!</h1>`;
-                  allContent.innerHTML += `<p>You got ${tracker}/15 answers right!`;
+                  allContent.innerHTML += `<p>You got ${tracker}/15 answers right,</p><p>And earned ${moneyArr[trackerMoney].innerText}</p>`;
                   allContent.innerHTML += `<button id="restart" style="padding:1.5rem 2.5rem;font-size:1.25rem">Try again</button>`;
                   var btnRestart = document.getElementById("restart");
 
